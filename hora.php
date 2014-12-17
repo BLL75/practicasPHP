@@ -15,6 +15,7 @@ echo " Hoy es el dia $dd del mes $mm del $yy<br>";
 
 
 
+// Modifico un poco mas.
 
 //Ordenamiento de array con algoritmo de la burbuja.(Más información en interneeeee).
  function burbuja($A,$n)
