@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3 &amp; jQuery Based Off-canvas Navigation Demo</title>
+<style class="cp-pen-styles">
+* {
+  font-family: courier;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100%;
+  background-color: floralwhite;
+}
+
+.menu {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  background-color: seagreen;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  left: 0;
+  z-index: 50;
+  overflow-y: auto;
+  padding-bottom: 100px;
+}
+
+.menu.closed { left: -250px; }
+
+#toggle {
+  background-color: seagreen;
+  height: 100%;
+  min-height: 100%;
+  width: 50px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0px;
+  z-index: 25;
+  -webkit-transition: all .7s ease;
+  transition: all .7s ease;
+}
+
+#toggle:hover { cursor: pointer; }
+
+#toggle.closed {
+  left: 0px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .3;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  margin-left: 0px;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+.content.closed .text {
+  -webkit-transform: translateX(80px);
+  -ms-transform: translateX(80px);
+  transform: translateX(80px);
+}
+
+.text {
+  width: 60%;
+  margin: auto;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+h1,
+h2 { color: #444; }
+
+p { color: #444; }
+
+p img {
+  float: left;
+  margin: 15px;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 85px 0 0 40px;
+  padding-right: 40px;
+}
+
+.menu ul li {
+  color: floralwhite;
+  font-size: 20px;
+  margin: 0 0 5px 0;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 10px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.menu ul li:hover {
+  background-color: #3bb16f;
+  cursor: pointer;
+}
+
+#wrapper {
+  height: 100%;
+  min-height: 100%;
+  position: fixed;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#wrapper.closed { position: fixed; }
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: seagreen;
+  position: relative;
+  width: 90%;
+  margin-left: 0;
+}
+
+hr:before {
+  content: "/";
+  display: block;
+  top: -8px;
+  left: -5px;
+  position: absolute;
+  color: seagreen;
+}
+ *::-moz-selection {
+ background-color: #1b5233;
+ color: floralwhite;
+}
+
+*::selection {
+  background-color: #1b5233;
+  color: floralwhite;
+}
+</style>
+</head>
+
+<body>
+<div id="toggle"> </div>
+<div class="menu closed">
+  <ul>
+    <li>Home</li>
+    <li>About</li>
+    <li>Contact</li>
+    <li>Blog</li>
+    <li>Share</li>
+  </ul>
+</div>
+<div id="wrapper">
+  <div class="content">
+    <div class="text">
+      <h1>CSS3 & jQuery Based Off-canvas Navigation Demo</h1>
+      <div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra a sem sed volutpat. Pellentesque lacinia pharetra volutpat. Proin vel tortor blandit, ornare justo in, iaculis purus. Sed semper lacus nec neque sodales laoreet. Aenean blandit nisi non enim faucibus tristique. Morbi feugiat non dui quis rutrum. Ut tempus pretium elementum. Ut eu augue risus. Ut luctus augue eget odio dapibus fringilla. Phasellus vel egestas lectus. Praesent dapibus mollis vulputate. Pellentesque sit amet massa at nisi iaculis malesuada. Vivamus nec ex velit. Quisque sodales maximus risus id porttitor.</p>
+      <p>Nam accumsan volutpat libero, ut volutpat ante varius in. Nunc gravida metus ac tempor suscipit. Nullam fringilla metus id diam tempus gravida. Donec non tristique nunc, ac gravida tellus. Duis rutrum, sapien id pharetra ornare, felis augue faucibus sapien, ut lacinia enim enim non nulla. Sed quis nulla non arcu facilisis pretium. Duis et elit eu erat accumsan rutrum nec non ante. Phasellus ac tortor aliquet neque lobortis tempor eu ut sem. Proin in turpis et velit commodo egestas. Donec sit amet pharetra urna, sed tempor leo. Etiam ornare arcu lectus, ut interdum quam mattis eu.</p>
+      <p>Etiam massa ante, ullamcorper auctor eros sit amet, semper lobortis erat. Suspendisse ut dolor ut magna volutpat placerat vel vitae metus. Fusce vitae placerat nibh. Fusce sollicitudin magna in semper ultrices. Phasellus ac arcu eu dolor lobortis lacinia in non quam. Duis at feugiat risus. Maecenas feugiat sit amet felis nec accumsan. Donec non volutpat lectus, id tempus elit. Donec eu felis lacinia, porttitor arcu quis, convallis dui. Proin efficitur molestie velit quis euismod. Etiam auctor orci ut fermentum tempor. Phasellus sit amet venenatis justo. Donec nec ipsum purus. Pellentesque eu lacus elit.</p>
+      <p>Sed non lacus a lacus pellentesque finibus ut vel ipsum. Phasellus pellentesque tincidunt diam, quis maximus justo euismod dictum. Phasellus sit amet erat nibh. Aliquam finibus tempor nisi ac vestibulum. Fusce cursus gravida arcu eu dapibus. Vestibulum sollicitudin mi eu sem vehicula cursus. Integer ac semper nulla, vitae semper ex. Curabitur elementum egestas mi non convallis. Integer sit amet malesuada turpis. Integer pellentesque velit et tortor mollis, eget euismod quam pretium. Sed accumsan lectus vitae tellus auctor cursus. Etiam imperdiet, justo sit amet dictum porta, justo ligula rutrum tellus, a fringilla elit purus ac nibh.</p>
+      <p>Etiam sed semper elit, eget bibendum risus. Ut sollicitudin finibus nisi non feugiat. Donec in lobortis sapien. Cras aliquet nec lorem gravida sagittis. Vestibulum sit amet ultrices quam. Fusce consequat neque non auctor pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam tempor arcu mauris. In hac habitasse platea dictumst. Phasellus cursus ex ac enim hendrerit, a porttitor magna auctor. Phasellus id ante ac nibh placerat cursus. Quisque tincidunt velit in nunc commodo faucibus. Pellentesque efficitur dui massa, et eleifend sem commodo nec. Aenean finibus augue eu mi pretium, dapibus iaculis dolor suscipit. Donec eleifend ante at gravida aliquet. Pellentesque sed nisl ut nunc fringilla aliquet id nec augue.</p>
+      <p>&nbsp;</p>
+      <hr />
+    </div>
+  </div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script>
+$( "#toggle" ).click(function() {
+  $(".menu").toggleClass("closed");
+  $(this).toggleClass("closed");
+  $(".content").toggleClass("closed");
+  $("#wrapper").toggleClass("closed")
+});
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
