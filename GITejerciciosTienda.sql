@@ -140,4 +140,12 @@ inner join (select sum(cantidad) from envios as t3) as t2 group by c,t;
 -- que no viva en Madrid y que no este en la misma ciudad que se monta el artículo.
 
 
+select distinct envios.t from envios
+inner join proveedores on(proveedores.ciudad <>'madrid')
+inner join articulos on(articulos.ciudad <> proveedores.ciudad)
+where envios.t = articulos.t and envios.p = proveedores.P
+group by t;
+
+
+
 
