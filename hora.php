@@ -2,13 +2,14 @@
 
 
 <?php
+// Esto es probando el Git
 function fechaActual(&$d, &$m, &$y){
     $fecha = getdate();
 	$d = $fecha['mday'];
 	$m = $fecha['mon'];
 	$y = $fecha['year'];
 };
-
+// Aqui tengo unos cambios zuprimo
 fechaActual($dd, $mm, $yy);
 echo " Hoy es el dia $dd del mes $mm del $yy<br>";
 
