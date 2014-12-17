@@ -133,8 +133,7 @@ select  count(distinct(t)),
 -- y la cantidad total correspondiente.
 
 
-select c, t, sum(cantidad) from envios as t1
-inner join (select sum(cantidad) from envios as t3) as t2 group by c,t;
+select c, t, sum(cantidad) from envios  group by c,t;
 
 -- 17. Obtener los valores de T de los articulos abastecidos al menos por un proveedor
 -- que no viva en Madrid y que no este en la misma ciudad que se monta el artículo.
@@ -145,6 +144,9 @@ inner join proveedores on(proveedores.ciudad <>'madrid')
 inner join articulos on(articulos.ciudad <> proveedores.ciudad)
 where envios.t = articulos.t and envios.p = proveedores.P
 group by t;
+
+-- 18. Obtener los valores de P para los proveedores que suministran al menos un componente
+-- suministrado al menos por un proveedor que suministra al menos un componente rojo.
 
 
 
