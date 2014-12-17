@@ -133,7 +133,7 @@ select  count(distinct(t)),
 -- y la cantidad total correspondiente.
 
 
-
+-- vOY HACIENDO EL CAMBIO EN EL GIT
 
 -- 17. Obtener los valores de T de los articulos abastecidos al menos por un proveedor
 -- que no viva en Madrid y que no este en la misma ciudad que se monta el artículo.
