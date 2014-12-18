@@ -149,5 +149,5 @@ group by t;
 -- suministrado al menos por un proveedor que suministra al menos un componente rojo.
 
 
-
+select envios.p from envios;
 
