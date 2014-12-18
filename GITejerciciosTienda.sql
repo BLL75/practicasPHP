@@ -149,5 +149,22 @@ group by t;
 -- suministrado al menos por un proveedor que suministra al menos un componente rojo.
 
 
-select envios.p from envios;
+select distinct envios.p 
+ from envios
+ inner join componentes
+ where componentes.color = 'rojo';
+
+-- 19. Obtener los identificadores de artículos, T, para los que se ha suministrado
+-- algún componente de que se haya suministrado un media superior a 320.
+
+select avg(cantidad) as 'x',t
+from envios where 'x' <> 320;
+
+
+select t from envios where min
+
+
+
+
+
 
