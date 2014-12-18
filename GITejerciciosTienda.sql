@@ -84,15 +84,17 @@ where (envios.t) in(select t from articulos where ciudad = 'sevilla') and
 (envios.p) in(select p from proveedores where ciudad = 'sevilla');
 
 
-
+-- De esta forma lo hariamos con los join.
+select c from envios
+inner join articulos on articulos.t = envios.t
+inner join proveedores on proveedores.p = envios.p
+where articulos.ciudad = 'sevilla' and proveedores.ciudad = 'sevilla';
 
 -- 12. Obtener los valores de T para los artículos que usan al menos un componente que se puede
 -- obtener con el proveedor P1.
 
-select * from articulos
- inner join envios
- on articulos.t = envios.t
- where envios.p = 'p1';
+select distinct t from envios
+where c in(select distinct c from envios where p = 'p1');
 
 
 -- 13. Obtener todas las ternas(ciudad, c, ciudad) tales que un proveedor de la primera ciudad
@@ -157,11 +159,35 @@ select distinct envios.p
 -- 19. Obtener los identificadores de artículos, T, para los que se ha suministrado
 -- algún componente de que se haya suministrado un media superior a 320.
 
-select avg(cantidad) as 'x',t
-from envios where 'x' <> 320;
+select distinct t from envios
+where c in(select c from envios group by c having avg(cantidad)>320);
 
 
-select t from envios where min
+
+-- 20. Seleccionar los identificadores de proveedores que hayan realizado algún envio
+-- con cantidad mayor que la media de los envios realizados para el componente al que
+-- se corresponda el envio.
+
+
+
+-- 21. Seleccionar los identificadores de componentes suministrados para el artículo T2
+-- por el proveedor P2.
+
+
+select c from envios where t = 't2' and p = 'p2';
+
+
+
+-- 22. Seleccionar todos los datos de los envios realizados de componentes cuyo color no sea ROJO.
+
+
+
+-- 23. Seleccionar los idenfiticadores de componentes que se suministren para los artículos T1 y T2.
+
+
+-- 24. Seleccionar el idenfiticador de proveedor y el número de envios de componentes de color ROJO
+-- llevados a cabo por cada proveedor.
+
 
 
 
