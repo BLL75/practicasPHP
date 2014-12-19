@@ -18,21 +18,18 @@
 	}
 	
 	/* Query the City table */
-	$results = $link_id->query("SELECT ID, Name, CountryCode,
-									District, Population FROM City
-									WHERE ID =$city_Code");	
-	/*Exit con error de mensaje si hay algún problema de ejecución con la query.*/
 	
-	if (!$results) {
-			echo "Query Error: $link_id->error";
-			exit;
-	}
+									
+    $stmt = $gbd->query("SELECT ID, Name, CountryCode,
+						District, Population FROM City
+						WHERE ID =$city_Code");
 	
-	while ($row = $results->fetch_assoc()) {
-		    $form_ID = $row["ID"];
+	
+	while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+		   $form_ID = $row["ID"];
 		   $form_Name = $row["Name"];
 		   $form_District = $row["District"];
-		   $form_Pop = $row["Population"];
+		   $form_Pop = $row["Population"]; 
 	}
 	
 print <<<Group2
@@ -49,7 +46,7 @@ City_Population: <input type="text" name="City_Pop" value="$form_Pop"><br/>
 </form>
 Group2;
 	//mysql_free_result($query_results);
-	$link_id->close();
+	$gbd = null;
 	?>
 	
 	

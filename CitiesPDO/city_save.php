@@ -26,7 +26,7 @@
 		
 
 		if($_GET['Submit']=='Insert'){
-				$link_id->query("REPLACE INTO City
+				$gbd->query("REPLACE INTO City
 							   (ID, Name, District,Population)
 							   VALUES($city_Code, '$City_Name',
 							   '$City_District',$City_Pop)");
@@ -45,7 +45,7 @@ print <<<Group1
 <h2>$userText</h2>
 <p><a href="city.php?ID=$city_Code">Volver al formulario</a></p>
 Group1;
-		$link_id->close();
+		$gbd = null;
 		?>
 	</body>
 </html>

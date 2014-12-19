@@ -18,26 +18,22 @@
 		
 		/* Query the City table */
 											
-		$results = $link_id->query("SELECT ID, Name, CountryCode,
-											District, Population FROM City
-											WHERE ID =$city_Code");									
+			
+        $stmt = $gbd->query("SELECT ID, Name, CountryCode,
+							District, Population FROM City
+							WHERE ID =$city_Code");											
 		/*Exit con error de mensaje si hay algún problema de ejecución con la query.*/
 		
-		if (!$results) {
-			echo "Query Error: $link_id->error";
-			exit;
-	    } 
+		
 		
 		/*Store the results of the query*/
-	
-	
-	
-		while ($row = $results->fetch_assoc()) {
+
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			   $form_ID = $row["ID"];
 			   $form_Code = $row["CountryCode"];
 			   $form_Name = $row["Name"];
 			   $form_District = $row["District"];
-			   $form_Pop = $row["Population"];
+			   $form_Pop = $row["Population"]; 
 		}
 	
 	    echo "<a href=countries.php?",$form_Code,">","Country:</a>";
@@ -52,27 +48,26 @@ Group1;
 	
 	
 	
-	$results2 = $link_id->query("SELECT Code, Name FROM Country ORDER BY Name");
-    
+	
+    $stmt2 = $gbd->query("SELECT Code, Name FROM Country ORDER BY Name");
    /* Exit with error si tenemos problema con la ejecución de la query */
 
-   if (!$results2) {
-			echo "Query Error: $link_id->error";
-			exit;
-	} 
+   
 
    /* Resultado de la query */
 
    
 	
-	while ($row2 = $results2->fetch_assoc()) {
-		if ($row2["Code"] == $form_Code) {
+	
+	
+	while($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+			if ($row2["Code"] == $form_Code) {
 			echo "<option value='",$row2["Code"],"' selected>",
 			$row2["Name"],"</option>";
-		} else {
-			echo "<option value='",$row2["Code"],"'>",
-			$row2["Name"],"</option>";
-		}
+			} else {
+				echo "<option value='",$row2["Code"],"'>",
+				$row2["Name"],"</option>";
+			} 
 	}
 	
 print <<<Group2
@@ -91,7 +86,7 @@ Group2;
 	echo "<a href=http://en.wikipedia.org/w/index.php?title=",$form_Name,">","Consulta esta ciudad en Wikipedia</a>";    
 
 		//Cerramos la conexion con el servidor
-		$link_id->close();	
+		$gbd = null;	
 	   ?>
 	   
 	</body>

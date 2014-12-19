@@ -14,12 +14,13 @@
 			
 			// En la query le pasamos las variables con email y contraseña.
 			//SHA porque es una contraseña codificada.
-			$results = $link_id->query("SELECT customerEmail FROM customers
+			
+			$stmt = $gbd->query("SELECT customerEmail FROM customers
 										WHERE customerEmail='$user' AND
 										passwd = SHA('$pword');");
-			
 			//Declaramos variable para rescatar el resultado de la query por array asociativo.
-		    $row = $results->fetch_assoc();
+		    
+			$row = $stmt->fetch(PDO::FETCH_ASSOC);
 			//Comprobación de que email y password son correctos.
 			if ($row["customerEmail"]=="$user") {
 			$_SESSION["Approved"]="Yes";

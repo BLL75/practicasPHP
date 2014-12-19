@@ -11,7 +11,7 @@
 		include("navigation.php");
 
 		$stmt = $gbd->query('SELECT ID, Name FROM City ORDER BY ID');
-		var_dump($stmt);
+		
  
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			echo $row["ID"]." - ".
@@ -20,18 +20,8 @@
 			echo "<a name =".$row["ID"]."></a>"; 
 		}
 		
-		
-		/* Resultado de la query */
 
-		
-		while ($row = $results->fetch_assoc()) {
-		    echo $row["ID"]." - ".
-			" - <a href='city_edit.php?ID=",
-			$row["ID"],"'>".$row["Name"]."</a>"."<br>";
-			echo "<a name =".$row["ID"]."></a>";//creamos un ancla a las IDs encontradas.
-		}
-        
-		$link_id->close();
+		$gbd = null;
 	   ?>
 	</body>
 </html>

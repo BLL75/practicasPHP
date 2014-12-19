@@ -19,25 +19,23 @@
 
 	// En la query le pasamos la variable
 	
-    $results = $link_id->query("SELECT name, region, surfacearea, population 
+    
+	$stmt = $gbd->query("SELECT name, region, surfacearea, population 
 	FROM country");
 	
-	if (!$results) {
-			echo "Query Error: $link_id->error";
-			exit;
-	}
 
 	//Recojemos datos de la consulta por array asociativo
 	
-	while ($row = $results->fetch_assoc()) {
-		    echo "  <h3>"." - <a href='http://en.wikipedia.org/w/index.php?title=",
-		    $row["name"],"'>".$row["name"]."</a>";
+
+	while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			echo "  <h3>"." - <a href='http://en.wikipedia.org/w/index.php?title=",
+		    $row["name"],"'>".$row["name"]."</a>"; 
 	}
 
 	//Creamos el ancla y le pasamos la variable $id.La cual recibe la ID del pais.
 	//echo "<a href=connection.php#",$id,">","Volver a paises</a>";
 
-	$link_id->close();
+	$gbd = null;
 	?>
 
 
