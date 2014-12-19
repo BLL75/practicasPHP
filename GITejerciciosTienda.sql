@@ -147,6 +147,15 @@ inner join articulos on(articulos.ciudad <> proveedores.ciudad)
 where envios.t = articulos.t and envios.p = proveedores.P
 group by t;
 
+-- Mejor esta segunda opción.Cristobal.
+
+select distinct envios.t from envios
+inner join proveedores on envios.p = proveedores.p
+inner join articulos on envios.t = articulos.t
+where proveedores.ciudad <> 'madrid' and
+articulos.ciudad <> proveedores.ciudad
+group by t;
+
 -- 18. Obtener los valores de P para los proveedores que suministran al menos un componente
 -- suministrado al menos por un proveedor que suministra al menos un componente rojo.
 
