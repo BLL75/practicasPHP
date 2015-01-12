@@ -13,9 +13,10 @@
 	foreach($_POST as $valor){
 	     $asignacion = "$valor";   
 	};
-	
 	var_dump($asignacion);
+
 	$array = explode(",", $asignacion);
+	
 	
 	$max = sizeof($array);
 	
