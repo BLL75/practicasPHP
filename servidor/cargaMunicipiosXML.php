@@ -1,5 +1,6 @@
 ﻿<?php
-header("Content-Type: application/xml");
+header("Content-Type: text/xml");
+echo '<?xml version="1.0" encoding="utf-8" ?>';
 
 $municipios["01"]["0014"] = "Alegría-Dulantzi";
 $municipios["01"]["0029"] = "Amurrio";
@@ -8117,7 +8118,7 @@ $provincia = trim($_POST["provincia"]);
 $losMunicipios = $municipios[$provincia];
 
 foreach($losMunicipios as $codigo => $nombre) {
-  $elementos_xml[] = "<municipio><codigo>$codigo</codigo><nombre>".$nombre."</nombre></municipio>";
+  $elementos_xml[] = "<municipio>\n<codigo>$codigo</codigo>\n<nombre>".$nombre."</nombre>\n</municipio>";
 }
 
 echo "<municipios>\n".implode("\n", $elementos_xml)."</municipios>";

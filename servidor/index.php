@@ -29,21 +29,64 @@
 				var p = $.parseXML(peticion_http.responseText);
 				console.log(p);
 				// Al cojer el elemento por TagName me crea un array'list'.
-				var list = p.getElementsByTagName("provincia");												
+				 list = p.getElementsByTagName("provincia");												
 				
 				// $.each es una función de ayuda de jquery
 				$.each(list,function(indice, elemento) {
-					$('#selectProvincia').append('<option>' +elemento.getElementsByTagName("nombre")[0].innerHTML + '</option>')
+				     
+					$('#selectProvincia').append("<option value = '" + elemento.getElementsByTagName("codigo")[0].innerHTML +"'>" + elemento.getElementsByTagName("nombre")[0].innerHTML + "</option>");
+					
+					//$('#selectProvincia').append('<option>' + $('elemento').html() + '</option>')
 				    
                 });
 			  }
-			  else {
-			    
-			  }
+			  
 			}
 		}
 		
-		
+		$( "#selectProvincia" ).change(function() {
+		  
+			
+			var valor = $( "#selectProvincia" ).val();
+			
+		  
+		    if(window.XMLHttpRequest) {
+			    peticion_municipios = new XMLHttpRequest();
+			}
+			else if(window.ActiveXObject) {
+				peticion_municipios = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			// Preparar la funcion de respuesta
+			peticion_municipios.onreadystatechange = muestraContenido2;
+			 
+			// Realizar peticion HTTP
+			peticion_municipios.open('POST','cargaMunicipiosXML.php', true);
+			//La siguiente linea es muy importante para darle formato al SEND.
+			var formData = new FormData(); // Para meter formato que acepte el POST
+            formData.append("provincia", valor);
+		    peticion_municipios.send(formData);	
+			
+			
+			
+			function muestraContenido2() {
+			    
+				$('#selectLocalidad').empty();
+				if(peticion_municipios.readyState == 4) {
+				  if(peticion_municipios.status == 200) {
+					
+					//Parseamos el XML que tenemos.
+					var p = $.parseXML(peticion_municipios.responseText);
+					// Al cojer el elemento por TagName me crea un array'list'.
+					list = p.getElementsByTagName("municipio");
+                    
+					// $.each es una función de ayuda de jquery
+					$.each(list,function(indice, elemento) {
+						$('#selectLocalidad').append("<option>" + elemento.getElementsByTagName("nombre")[0].innerHTML + "</option>");						
+					});
+				  }
+				}
+			} 
+		});
 	});
 	
 	</script>
@@ -51,14 +94,14 @@
 	<body>
 		<?php
 
-			
+			echo "<form method='POST' action='index.php' id='formulario'>";
 			//Comienzo select Provincia
 				echo "Provincia"."<select id = 'selectProvincia'>";
 				echo "<option>-Provincia-</option>";
 				//echo "<option value='",$row["provincia"],"'>",$row["nombre"],"</option>";
 				//Fin select Provincia
 				echo "</select>";
-				
+			echo "</form>";	
 				
 			//Comienzo select Localidad
 				echo "Localidad"."<select id = 'selectLocalidad'>";
@@ -66,13 +109,7 @@
 				//Fin select Localidad
 				echo "</select>";
 				
-				
 		?>
-		<ol>
-			<li>chupa 1</li>
-			<li>Elemento 2</li>
-			<li>Elemento 3</li>
-			<li>Elemento 4</li>
-		</ol>
+		
 	</body>
 </html>

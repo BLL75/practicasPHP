@@ -1,5 +1,6 @@
 ﻿<?php
-header("Content-Type: application/xml");
+header("Content-Type: text/xml");
+echo '<?xml version="1.0" encoding="utf-8" ?>';
 
 $provincias["01"] = "Álava/Araba";
 $provincias["02"] = "Albacete";
