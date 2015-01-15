@@ -15,16 +15,21 @@
 			 
 		   });			
 		});
-
 		
         $('#selectProvincia').change(function(){
-		    alert($( "#selectProvincia" ).val());
-			$.post( "cargaMunicipiosXML.php", function( valor ) {
-			    
-				var formData = new FormData(); // Para meter formato que acepte el POST
-                data = formData.append("provincia", valor);
-				$( ".result" ).text( data );
+		
+		    valor = $('#selectProvincia').val();
+			$('#selectLocalidad').empty();
+		    //formData = new FormData(); // Para meter formato que acepte el POST
+			//console.log(formData);
+            //formData.append("provincia", valor);
+			$.post( "cargaMunicipiosXML.php", {'provincia': valor}, function( data ) {			    				
+				
+				$(data).find('municipio').each(function(){
+				      $('#selectLocalidad').append("<option>" + $(this).find('nombre').text() + "</option>");
+			    });				
 			});
+		    
         });		
 		
 		
@@ -34,23 +39,19 @@
 	</head>
 	<body>
 		<?php
-
 			echo "<form method='POST' action='index.php' id='formulario'>";
 			//Comienzo select Provincia
 				echo "Provincia"."<select id = 'selectProvincia'>";
-				echo "<option>-Provincia-</option>";
-				//echo "<option value='",$row["provincia"],"'>",$row["nombre"],"</option>";
+				    echo "<option>-Provincia-</option>";
 				//Fin select Provincia
 				echo "</select>";
 			echo "</form>";	
 				
-			//Comienzo select Localidad
-				echo "<textarea class = 'result'></textarea>";
-				echo "Localidad "."<select id = 'selectLocalidad'>";
-				echo "<option>Localidad</option>";
+			//Comienzo select Localidad	
+			echo "Localidad "."<select id = 'selectLocalidad'>";
+				echo "<option>-Localidad-</option>";
 				//Fin select Localidad
-				echo "</select>";
-				
+			echo "</select>";		
 		?>
 		
 	</body>
