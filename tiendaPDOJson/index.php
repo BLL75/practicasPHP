@@ -22,9 +22,9 @@
 			//Para meter los datos en el array. PUSH
 			myArray.push([$("#selectProveedores").val(), $("#selectComponentes").val(),$("#selectArticulos").val(),$("#cantidad").val()]);
 			//Pasamos a JSON
-		    myArraySerializado = JSON.stringify(myArray);
-			$("#btnComprar").val(myArraySerializado);
-			console.log(myArraySerializado);
+		    myArrayJSON = JSON.stringify(myArray);
+			$("#btnComprar").val(myArrayJSON);
+			console.log(myArrayJSON);
 		});
 		
 		// validate signup form on keyup and submit

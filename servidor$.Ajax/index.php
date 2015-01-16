@@ -5,15 +5,12 @@
 	  // Obtener la instancia del objeto XMLHttpRequest
 	$(document).ready(function(){
 	    
-		
-		
-		
-
 		$.ajax({url:"cargaProvinciasXML.php",success:function(result){
 			$(result).find('provincia').each(function(){
 			    $('#selectProvincia').append("<option value = '" + $(this).find('codigo').text() +"'>" + $(this).find('nombre').text() + "</option>"); 
 			});
 		}});
+		
 		
 		$('#selectProvincia').change(function(){
 		    valor = $('#selectProvincia').val();

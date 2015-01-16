@@ -12,9 +12,10 @@
 			type: 'GET',
 			dataType: 'json',
 			success: function(data){
-			$(data).each(function(){
-		     //$("#selectProvincia").append("<option>" + $(this).find('nombre').text() + "</option>")
-			 $('#selectProvincia').append("<option value = '" + $(this).find('codigo').text() +"'>" + $(this).find('nombre').text() + "</option>");
+			$(data.provincias).each(function(){
+			//Con este this sería igual a data.provincias
+		    $("#selectProvincia").append("<option value = '"+ this.provincia.codigo +"'>" + this.provincia.nombre + "</option>")
+			
 			 
 		   });}
 		});
@@ -30,6 +31,7 @@
 			  async: true,
 			  data: 'provincia=' + valor,
 			  success: function(data){$(data).find('municipio').each(function(){
+			  //Con este $(this) seria un selector del objeto
 				          $('#selectLocalidad').append("<option>" + $(this).find('nombre').text() + "</option>");
 			           });}
 			});
