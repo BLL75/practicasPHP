@@ -37,7 +37,7 @@
 		}
 	
 	    echo "<a href=countries.php?",$form_Code,">","Country:</a>";
-	
+	    
 	
 
 print <<<Group1
