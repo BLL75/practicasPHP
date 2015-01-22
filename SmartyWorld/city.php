@@ -26,9 +26,6 @@
 		   $city_Code = $_GET['ID'];
 		}
 		
-		
-		
-		
 		/* Query the City table */
 											
 			
@@ -48,7 +45,7 @@
 		}
 		
 		$smarty->assign("codigoPais",$list['countryCode'],true);
-		
+		$smarty->assign('id', $list['ID']);
 		$smarty->assign('list', $list);
 		
 		
