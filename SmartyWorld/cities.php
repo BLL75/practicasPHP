@@ -9,7 +9,6 @@
 	    //Enlace para archivo donde tenemos datos de conexion a la bbdd orientada a objetos.
 		require("connection_info.php");
 		include("navigation.php");
-		require 'libs/Smarty.class.php';
 
 		$smarty = new Smarty;
 		$smarty->caching = false;

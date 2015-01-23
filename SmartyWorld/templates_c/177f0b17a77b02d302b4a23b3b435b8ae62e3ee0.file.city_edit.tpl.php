@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-01-21 19:48:50
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-01-23 20:20:30
          compiled from "city_edit.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2551454bfefd866ff33-82990164%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1997654c29efe6ea051-12292866%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,19 +11,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2551454bfefd866ff33-82990164',
+  'nocache_hash' => '1997654c29efe6ea051-12292866',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_54bfefd86ea056_73153820',
   'variables' => 
   array (
     'lista' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_54c29efe764171_38352843',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54bfefd86ea056_73153820')) {function content_54bfefd86ea056_73153820($_smarty_tpl) {?><html>
+<?php if ($_valid && !is_callable('content_54c29efe764171_38352843')) {function content_54c29efe764171_38352843($_smarty_tpl) {?><html>
 	<head>
 		  <title>Editando ciudades del mundo</title>
 		  <h1 align = "center">Editar la ciudad</h1>

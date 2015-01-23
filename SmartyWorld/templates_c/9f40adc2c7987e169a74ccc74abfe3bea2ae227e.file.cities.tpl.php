@@ -1,29 +1,29 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-01-21 20:21:55
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-01-23 20:14:32
          compiled from "cities.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:421454bff93e8583b1-21290394%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2461354c29d980f4244-77452153%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9f40adc2c7987e169a74ccc74abfe3bea2ae227e' => 
     array (
       0 => 'cities.tpl',
-      1 => 1421868109,
+      1 => 1422039133,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '421454bff93e8583b1-21290394',
+  'nocache_hash' => '2461354c29d980f4244-77452153',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_54bff93e8d24d3_24409532',
   'variables' => 
   array (
     'lista' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_54c29d9816e360_83887194',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54bff93e8d24d3_24409532')) {function content_54bff93e8d24d3_24409532($_smarty_tpl) {?><html>
+<?php if ($_valid && !is_callable('content_54c29d9816e360_83887194')) {function content_54c29d9816e360_83887194($_smarty_tpl) {?><html>
 	<head></head>
 	<body>
 	    

@@ -1,15 +1,12 @@
-<?php require("security.php"); ?>
-<html>
-	<head>
-	    <meta charset = "utf-8">
-	    <title>Navigation</title>
+<?php
+	require 'libs/Smarty.class.php';
+	require("security.php");	
+
+	$smarty2 = new Smarty;
+	$smarty2->caching = false;
+	$smarty2->debugging=true;
+	$smarty2->display('navigation.tpl');
+	
+	
+?>			
 		
-	</head>
-	<body>
-	    <p>
-			<a href="countries.php?ID=1"><h2>Countries</h2></a><br/>
-			<a href="cities.php"><h2>Cities</h2></a><br/>
-			
-		</p>
-	</body>
-</html>

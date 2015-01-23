@@ -9,7 +9,7 @@
 		require("connection_info.php");
 		include("navigation.php");
 		
-		require 'libs/Smarty.class.php';
+		//require 'libs/Smarty.class.php';
 		
 		
 		
@@ -48,7 +48,7 @@
 		}
 		
 		$smarty->assign("codigoPais",$list['countryCode'],true);
-		
+		$smarty->assign('id', $list['ID']);
 		$smarty->assign('list', $list);
 		
 		

@@ -7,7 +7,7 @@
 	<?php
 	require("connection_info.php");
 	include("navigation.php");
-	require 'libs/Smarty.class.php';
+	//require 'libs/Smarty.class.php';
 
 	$smarty = new Smarty;
 	$smarty->caching = false;
