@@ -26,9 +26,6 @@
 		   $city_Code = $_GET['ID'];
 		}
 		
-		
-		
-		
 		/* Query the City table */
 											
 			
