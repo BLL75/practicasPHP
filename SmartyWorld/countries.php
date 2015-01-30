@@ -19,13 +19,11 @@
 		
 	$smarty = new Smarty;
 	$smarty->caching = false;
-	$smarty->debugging=true;
+	
 	
 
 
 	// En la query le pasamos la variable
-	
-    
 	$stmt = $gbd->query("SELECT name, region, surfacearea, population 
 	FROM country");
 	

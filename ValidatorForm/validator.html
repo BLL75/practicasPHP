@@ -1,0 +1,66 @@
+<html>
+	<head>
+	   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.1.47/jquery.form-validator.min.js"></script>
+	<head>
+	<body>
+	    <form action="" id="registration-form">
+			<p>
+				E-mail
+				<input name="email" data-validation="email">
+			</p>
+			<p>
+			    User name
+				<input name="user" data-validation="length alphanumeric"
+				data-validation-length="3-12" data-validation-error-msg="The user name has to be an alphanumeric value between 3-12 characters">
+			</p>
+			<p>
+			    Password
+				<input name="pass_confirmation" data-validation="strength"
+				data-validation-strength="2">
+			</p>
+			<p>
+				Repeat password
+				<input name="pass" data-validation="confirmation">
+			</p>
+			<p>
+				Birth date
+				<input name="birth" data-validation="birthdate"
+				data-validation-help="yyyy-mm-dd">
+			</p>
+			<p>
+				Country
+				<input name="country" id="country" data-validation="country">
+			</p>
+			<p>
+				Profile image
+				<input data-validation="mime size" data-validation-allowing="jpg, png"
+				data-validation-max-size="512kb" type="file">
+			</p>
+			<p>
+				User Presentation (<span id="pres-max-length">100</span> characters left)
+				<textarea name="presentation" id="presentation"></textarea>
+			</p>
+			<p>
+				<input data-validation="required"
+				data-validation-error-msg="You have to agree to our terms" type="checkbox">
+				I agree to the <a href="..." target="_blank">terms of service</a>
+			</p>
+			<p>
+			   <input type="submit">
+			</p>
+		</form>
+		<script>
+			$.validate({
+			modules : 'location, date, security, file',
+			onModulesLoaded : function() {
+			$('#country').suggestCountry();
+			}
+			});
+			 
+			// Restrict presentation length
+			$('#presentation').restrictLength( $('#pres-max-length') );
+		</script>
+	
+	</body>
+</html>

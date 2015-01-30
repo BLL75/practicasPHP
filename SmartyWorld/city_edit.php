@@ -11,7 +11,7 @@
 
 	$smarty = new Smarty;
 	$smarty->caching = false;
-	$smarty->debugging=true;
+	
 
 
 	
@@ -32,8 +32,12 @@
            $lista['ID'] = $row["ID"];
            $lista['name'] = $row["Name"];
            $lista['district'] = $row["District"];
-           $lista['poblacion'] = $row["Population"];		   
+           $lista['poblacion'] = $row["Population"];
+           $_SESSION['cities'][] = $lista['name'];		   
 	}
+	
+	
+	//var_dump($_SESSION['cities'][0]);
 	
 	$smarty->assign('lista', $lista);
 	$smarty->display('city_edit.tpl');

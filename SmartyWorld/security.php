@@ -4,7 +4,7 @@
 
 	$smarty3 = new Smarty;
 	$smarty3->caching = false;
-	$smarty3->debugging=true;
+	
     
     if(isset($_POST["access_requested"])){
 	    if ($_POST["access_requested"]=="yes") {
@@ -27,9 +27,9 @@
 			if ($row["customerEmail"]=="$user") {
 				$_SESSION["Approved"]="Yes";
 			} else {
-				$smarty->assign("mensaje", "Incorrect Username and/or Password, please try again");
+				//$smarty3->assign("mensaje", "Incorrect Username and/or Password, please try again");
 			    $_SESSION["Approved"]="No";
-				$smarty->display('security.tpl');
+				//$smarty3->display('security.tpl');
 				
 			}
 		}
@@ -45,7 +45,7 @@
 		
     }else{ 
        $req_URL = $_SERVER["REQUEST_URI"];
-	   $smarty3->assign("mensaje", "Introduzca su usuario");
+	   $smarty3->assign("mensaje", "Introduzca sus correctamente");
 	   $smarty3->assign("Approved","No");
        $smarty3->assign('url', $req_URL);
        $smarty3->display('security.tpl');

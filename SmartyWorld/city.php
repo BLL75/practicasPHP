@@ -15,7 +15,7 @@
 		
 		$smarty = new Smarty;
 		$smarty->caching = false;
-		$smarty->debugging=true;
+		
 		
 		//$smarty->assign("codigoCiudad","probando la cosa",true);
 		
@@ -57,6 +57,8 @@
 		while($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
 			$fila2[] = array("code" => $row2['Code'], "name" => $row2['Name']);	
 	    }
+		
+		
 		
 		$smarty->assign('fila2', $fila2);
 		$smarty->display('city.tpl');

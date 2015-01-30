@@ -11,7 +11,7 @@
 	//require 'libs/Smarty.class.php';
 	$smarty = new Smarty;
 	$smarty->caching = false;
-	$smarty->debugging=true;
+	
 	//Parametro que pasamos por URL
 	if($_GET['ID']){
 	   $city_Code = $_GET['ID'];
