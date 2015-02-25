@@ -5,7 +5,7 @@
 	<body>
 	  
 	  
-	    <div class="col-lg-6 col-lg-offset-3 text-center">
+	    <div class="col-lg-2 col-lg-offset-4 text-center">
 		    <h1 align = "center">Editar la ciudad</h1>
 			<form action="city_save.php" method="GET" class='form-horizontal'>
 				City Name: <input type="text" class="form-control" name="City_Name" value="{$name}"><br/>

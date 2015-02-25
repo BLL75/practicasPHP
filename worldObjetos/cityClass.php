@@ -4,7 +4,7 @@
 	class cityClass {
 	      
 		  //Propiedades de la clase
-		  public $id, $name, $countrycode, $district, $population, $gbd;
+		  public $id, $name, $countrycode, $district, $population, $gbd, $ciudades;
 		  
 		  
 		  public function __construct($gbd)
@@ -17,18 +17,20 @@
 		  
 		  
 		  public function cargarCiudad($city_Code){ // cambiado nombre del metodo
-		    
 		    $stmt = $this->gbd->query("SELECT ID, Name, CountryCode,
 								District, Population FROM City
 								WHERE ID =$city_Code");
 			
 			
 			while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				//$_SESSION['cities'][] = $row['Name'];
                 $this->id = $row['ID'];
-                $this->name = $row['Name'];								
+                $this->name = $row['Name'];				
 				$this->countryCode = $row['CountryCode'];
 				$this->district =$row['District'];
-				$this->population =$row['Population'];	   
+				$this->population =$row['Population'];
+				
+                				
 			}
 			
 		  }
@@ -39,14 +41,8 @@
 		  }
 		  
 		  
-		  
-		  
+
+          		  
 	}	
-	
-	//$per1=new Pais('Pakistan','Pak',123456,987654);
-	//$per1->imprimirPaises('Spain');
-	//$per1->imprimirPaises($gbd);
-	//$per1->buscarPais($gbd,'Japan');
-	//$per1->eliminarPais($gbd,'Japan');
 
 ?>
