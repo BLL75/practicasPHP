@@ -4,7 +4,7 @@
 	require_once 'vendor/autoload.php';
 	use Symfony\Component\HttpFoundation\Request;
 	use Symfony\Component\HttpFoundation\Session\Session;
-	use Symfony\Component\HttpFoundation\Session\Attribute\NamespacedAttributeBag;
+
 
     class securityClass{
 	    
@@ -25,11 +25,11 @@
 		}
 		
 		public function setSesionAprobadoOn(){
-			$this->sesion->set('Approved','Yes');
+			$this->sesion->set('Approved',true);
 		}
 		
 		public function setSesionAprobadoOff(){
-			$this->sesion->set('Approved','No');
+			$this->sesion->set('Approved',false);
 		}
 		
 		public function meterDatoHistorial($name){           
@@ -76,11 +76,11 @@
 			//Comprobación de que email y password son correctos.
 			if ($row["customerEmail"]==$this->user){
 				$this->setSesionAprobadoOn();
-                var_dump('La sesion ha sido aprobada');				
+                				
 			} 
 			else{
 				$this->setSesionAprobadoOff();
-                var_dump('La sesion NO ha sido aprobada');				
+                				
 			}				
 		}	
     }

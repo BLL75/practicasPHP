@@ -1,0 +1,16 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+
+.simple-price-calc {font-size: 14px; font-family:'Open Sans';}
+.simple-price-calc button {display:inline-block; border:1px solid #ddd; padding:7px 10px; border-radius:5px; background:#2c3e50; color:white;}
+#simple-price-total {margin-top:15px;}
+#simple-price-total label{color:green; font-weight:bold; font-size:20px; } 
+
+#spcmessage {color:green; padding:5px; margin-top:10px;}
+#spcmessage.border {border:1px solid #2c3e50;}
+#spcmessage > span {color:red;}
+
+
+
+
+

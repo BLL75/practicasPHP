@@ -8,13 +8,13 @@
 	require("connection_info.php");
 	include("navigation.php");
 	require("cityClass.php");
+	//require("tplClass");
 	use Symfony\Component\HttpFoundation\Request;
 	use Symfony\Component\HttpFoundation\Session\Session;
 	
 	$request = Request::createFromGlobals();
 
-	$smarty = new Smarty;
-	$smarty->caching = false;
+	
 	
 	//Parametro que pasamos por URL
 	if($request->get('ID')){
@@ -25,15 +25,9 @@
     $ciudad->cargarCiudad($city_Code);
 
 	$autenticar->meterDatoHistorial($ciudad->name);
-	
-	$smarty->assign('lista', $ciudad);
-	$smarty->assign('name', $ciudad->name);
-	$smarty->assign('district', $ciudad->district);
-	$smarty->assign('poblacion', $ciudad->population);
-	$smarty->assign('id', $ciudad->id);
-	$smarty->display('city_edit.tpl');
-	
 
+	//$smarty = new tplClass();
+	$smarty->tplCityEdit();
 	
 	$gbd = null;
 	?>

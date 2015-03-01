@@ -1,0 +1,62 @@
+<?php
+    require('connection_info.php');
+	//session_start();
+	//require('navigation.php');
+	require_once 'vendor/autoload.php';
+	require("cityClass.php");
+	use Symfony\Component\HttpFoundation\Request;
+	use Symfony\Component\HttpFoundation\Session\Session;
+	
+
+    class tplClass{
+	    
+		public $smarty,$smarty3;
+		
+		
+
+
+       
+		
+		
+
+		public function __construct(){
+		    //$this->gbd = $gbd;
+			//$this->sesion = new Session();
+			//$this->sesion->start();
+			//$this->setSesionAprobadoOff();
+		}
+
+		public function tplGetSesionAprobado(){
+			$smarty3 = new Smarty;
+	        $smarty3->caching = false;
+		    $smarty3->assign("mensaje", "");
+			$smarty3->assign("Approved","Yes");
+			$smarty3->display('security.tpl');
+			$this->smarty = $smarty3;
+			
+		}
+
+		public function tplSesionNoAprobada(){
+            $req_URL = $_SERVER["REQUEST_URI"];
+            $smarty3 = new Smarty;
+	        $smarty3->caching = false;
+		    $smarty3->assign("mensaje", "Introduzca sus correctamente");
+		    $smarty3->assign("Approved","No");
+	        $smarty3->assign('url', $req_URL);
+	        $smarty3->display('security.tpl');
+	        $this->smarty = $smarty3;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+    }
+?>

@@ -6,8 +6,8 @@
 <?php
 //Manejo de errores de conexion.
 $usuario = 'root';
-//$pwd = '1234';
-$pwd = '123';
+$pwd = '1234';
+//$pwd = '123';
 try {
     $gbd = new PDO('mysql:host=localhost;dbname=world', $usuario, $pwd);
     
